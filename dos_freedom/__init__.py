@@ -14,6 +14,7 @@ negative result — see the FDK STATUS).
 
 from __future__ import annotations
 
+from .conflict import Claim, Resolution, ResolutionResult, resolve
 from .consent import Consent, ConsentLedger, valid_consent
 from .freedom import (
     FreedomGate,
@@ -31,6 +32,10 @@ __all__ = [
     "Consent",
     "ConsentLedger",
     "valid_consent",
+    "Claim",
+    "Resolution",
+    "ResolutionResult",
+    "resolve",
     "FreedomGate",
     "FreedomOutcome",
     "build_policy",
