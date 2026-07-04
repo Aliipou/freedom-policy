@@ -16,6 +16,14 @@ gate.act("bot", {"resource": "customer_db"}, TOOLS)   # permitted -> runs, audit
 gate.act("bot", {"resource": "alice"}, TOOLS)          # machine-sovereignty -> forbidden
 ```
 
+> **Legitimacy ⊥ Authority — this repo is the *legitimacy* side.** These policies
+> answer "should this happen at all?" and may only **DENY**; they never grant a
+> capability. That is the AuthGate / kernel *authority* role, downstream.
+> **Invariant:** legitimacy never grants authority; authority never overrides a
+> legitimacy denial. See [`PARADIGM.md`](PARADIGM.md) for the operational core and
+> the derived Stage-4 conflict-resolution result. A proposed architecture, not a
+> proven paradigm.
+
 ## What's implemented (runnable, tested — 8 tests)
 
 | Theory component | Status |
