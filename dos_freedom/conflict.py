@@ -71,9 +71,15 @@ def resolve(a: Claim, b: Claim) -> ResolutionResult:
     #    irreversible rights-violation while resolving.
     if a.inalienable_owner and b.inalienable_owner:
         if a.reversible and not b.reversible:
-            return ResolutionResult(Resolution.A_WINS, "reversibility preference: 'a' is reversible, 'b' is not")
+            return ResolutionResult(
+                Resolution.A_WINS,
+                "reversibility preference: 'a' is reversible, 'b' is not",
+            )
         if b.reversible and not a.reversible:
-            return ResolutionResult(Resolution.B_WINS, "reversibility preference: 'b' is reversible, 'a' is not")
+            return ResolutionResult(
+                Resolution.B_WINS,
+                "reversibility preference: 'b' is reversible, 'a' is not",
+            )
         # 4+5. Both reversible or both irreversible -> no principled winner without
         #      sacrificing a right -> human, never a rights violation.
         return ResolutionResult(

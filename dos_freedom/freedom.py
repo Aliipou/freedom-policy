@@ -59,7 +59,9 @@ def mahdavi_score(reduces_violation: bool, increases_coercion: bool) -> float:
     return (1.0 if reduces_violation else 0.0) - (0.5 if increases_coercion else 0.0)
 
 
-def guidance_valid(preserves_rights: bool, reduces_conflict: bool, preserves_verifier: bool) -> bool:
+def guidance_valid(
+    preserves_rights: bool, reduces_conflict: bool, preserves_verifier: bool
+) -> bool:
     """GuidanceFunction: a rule revision is valid iff it preserves rights + the
     verifier and reduces conflict — never revolution against the axioms."""
     return preserves_rights and reduces_conflict and preserves_verifier
@@ -70,7 +72,9 @@ class FreedomGate:
     decides; this gate only refuses actions the theory forbids *before* the kernel,
     and lets the kernel + PEP enforce the rest."""
 
-    def __init__(self, registry: OwnershipRegistry, consent: ConsentLedger, *, audit_path: str) -> None:
+    def __init__(
+        self, registry: OwnershipRegistry, consent: ConsentLedger, *, audit_path: str
+    ) -> None:
         from decision_os_min import DecisionOS  # the value-neutral runtime
 
         self.registry = registry
