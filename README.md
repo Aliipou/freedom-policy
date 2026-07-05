@@ -16,10 +16,15 @@ gate.act("bot", {"resource": "customer_db"}, TOOLS)   # permitted -> runs, audit
 gate.act("bot", {"resource": "alice"}, TOOLS)          # machine-sovereignty -> forbidden
 ```
 
-> **Legitimacy ⊥ Authority — this repo is the *legitimacy* side.** These policies
-> answer "should this happen at all?" and may only **DENY**; they never grant a
-> capability. That is the AuthGate / kernel *authority* role, downstream.
-> **Invariant:** legitimacy never grants authority; authority never overrides a
+> **SYSTEM = Legitimacy ⊥ Authority — this repo is the *legitimacy* side.** Both
+> layers are the theory made executable: legitimacy (ownership / consent / verifier,
+> here) **and** authority (delegated machine property rights, tool-permission,
+> runtime enforcement — the AuthGate side, downstream). The authority layer is
+> *equally* part of the theory, not neutral plumbing. These policies answer "should
+> this happen at all?" and may only **DENY**; they never grant a capability.
+> **Pipeline order (canonical, locked):** identity admission → **FDK legitimacy
+> (DENY-only)** → **AuthGate authority (grant within legitimacy)** → PEP execute +
+> audit. **Invariant:** legitimacy may only DENY; authority never overrides a
 > legitimacy denial. See [`PARADIGM.md`](PARADIGM.md) for the operational core and
 > the derived Stage-4 conflict-resolution result. A proposed architecture, not a
 > proven paradigm.
@@ -36,12 +41,14 @@ gate.act("bot", {"resource": "alice"}, TOOLS)          # machine-sovereignty -> 
 
 ## Honest boundaries (stated, not hidden)
 
-- **This implements the theory's *executable structure*. It does NOT claim the
-  theory's philosophical thesis.** That thesis was **closed as a negative result by
-  its own author** (it reduces to Nozick/Pettit/Sen; "reversibility" ≈ switching
-  cost) — see the FDK `STATUS.md`. This repo is the *engineering* answer to "can the
-  operational core run on a neutral runtime?" — yes, it can — not a revival of the
-  closed philosophy.
+- **This implements the theory's *executable structure*.** The philosophical
+  *independence* question — whether the theory is distinct from Nozick / Pettit /
+  Sen — was **not previously demonstrated, and is now REOPENED under new evidence**
+  (the green-team defense and the killer/predictive-test program in the FDK repo).
+  It is **undetermined and under active evaluation** — *not* closed, *not* a settled
+  negative result, and *not* proven either. This repo's own contribution is the
+  *engineering* answer to "can the operational core run on a neutral runtime?" — yes,
+  it can — independent of how that open question resolves.
 - `coerced` / `deceived` are **declared inputs**, not detected. Detecting real
   coercion/deception from behaviour is unsolved and out of scope (the trust
   boundary).
